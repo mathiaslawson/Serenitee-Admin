@@ -1,6 +1,8 @@
 import {Routes, Route} from 'react-router-dom'
 import {CssBaseline, ThemeProvider} from '@mui/material'
 import { ColorModeContext, useMode } from './theme';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
     const [theme, colorMode] = useMode()
@@ -14,7 +16,8 @@ function App() {
                         {/*  */}
                         <main className='content'>
                               <Routes>
-                                <Route />
+                                <Route path='/login' element={<Login />}/>
+                                <Route path='/register' element={<Register />}/>
                               </Routes>
                         </main>
                      </div>
