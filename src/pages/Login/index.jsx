@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Login = () => {
+const Login = ({email , password, handleChange, error}) => {
   const classes = useStyles();
 
   return (
@@ -74,6 +74,8 @@ const Login = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange= {handleChange}
             />
             <TextField
               variant="outlined"
@@ -85,7 +87,11 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={handleChange}
             />
+                 {/* Error message */}
+                 {error && <p>{error.message}</p>}
             <br />
             <br />
             <Button
