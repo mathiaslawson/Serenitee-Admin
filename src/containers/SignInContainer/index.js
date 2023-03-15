@@ -41,7 +41,7 @@ class SignInContainer extends Component {
 
         this.setState({error: errorMessage})
       })
-    console.log(this.state.email, this.state.password);
+    
   
   };
 

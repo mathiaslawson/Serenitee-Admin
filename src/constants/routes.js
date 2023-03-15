@@ -1,5 +1,6 @@
-const HOME = '/home';
-const SIGN_IN = '/';
+const HOME = '/';
+const SIGN_IN = '/signin'
+;
 
 
 export { HOME, SIGN_IN};
