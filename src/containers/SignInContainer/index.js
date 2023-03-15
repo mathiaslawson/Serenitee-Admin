@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Login from '../../../pages/Login';
+import Login from '../../pages/Login';
 import {compose} from 'redux'
 import {connect} from 'react-redux'
-import {SignIn as SignInAction} from '../../../actions'
-import { withFirebase } from '../../../services';
+import {SignIn as SignInAction} from '../../actions'
+import { withFirebase } from '../../services';
 
 class SignInContainer extends Component {
   state = {
