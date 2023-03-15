@@ -13,26 +13,27 @@ class SignInContainer extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const { firebase, SignInAction } = this.props;
-    const { email, password } = this.state;
+    const { firebase, SignInAction } = this.props
+    const { email, password } = this.state
 
     firebase
       .signIn(email, password)
       .then(success => {
-        const user = success.user;
-         console.log(user);
+        const user = success.user
+         console.log(user)
 
         const userData = {
           email: user.email
-        };
+        }
 
-        SignInAction(userData);
+        SignInAction(userData)
+        console.log('wokred signed in')
       })
       .catch(error => {
         const errorMessage = error.message;

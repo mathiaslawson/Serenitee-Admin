@@ -1,6 +1,6 @@
 import {SIGN_IN} from '../constants/actionTypes'
 
-const SignIn = paylaod =>{
+const SignIn = payload =>{
     return {
         type: SIGN_IN,
         payload

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { SignOut } from '../../actions';
+// import { SignOut } from '../../actions';
 import { withFirebase } from '../../services/index';
 
 import Home from '../../pages/Home'
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 export default compose(
   connect(
     mapStateToProps,
-    { SignOut }
+    // { SignOut }
   ),
   withFirebase
 )(HomeContainer);
