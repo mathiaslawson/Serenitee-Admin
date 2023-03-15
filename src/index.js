@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { createRoot } from 'react-dom/client'
-import './index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
+import Firebase, { FirebaseContext } from './services/index';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './containers/App';
 import { ColorModeContext, useMode } from './theme';
 import { ThemeProvider } from '@emotion/react';
@@ -18,6 +17,7 @@ function Index() {
   return (
     <React.StrictMode>
       <Provider store={store}>
+      <FirebaseContext.Provider value={new Firebase()}>
         <ColorModeContext.Provider value={colorMode}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -30,6 +30,7 @@ function Index() {
           </div>
           </ThemeProvider>
         </ColorModeContext.Provider>
+        </FirebaseContext.Provider>
       </Provider>
     </React.StrictMode>
   );
