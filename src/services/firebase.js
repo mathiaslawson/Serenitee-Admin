@@ -1,27 +1,38 @@
-import {initializeApp} from 'firebase/app'
-import {
-  getAuth,
-  
-} from 'firebase/auth';
-import 'firebase/firestore';
+import app from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
 import firebaseConfig from './firebaseConfig';
-import { getFirestore} from 'firebase/firestore';
 
 class Firebase {
   constructor() {
-    this.firebase = initializeApp(firebaseConfig);
+    app.initializeApp(firebaseConfig);
 
-    this.auth = getAuth();
-    this.firestore = getFirestore();
+    this.auth = app.auth();
+    this.db = app.firestore();
   }
-  
 
-  signIn = (email, password) =>{
-    this.auth.signInWithEmailAndPassword(email, password) ;
-   
-  }
+  signIn = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password);
+
+  signUp = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
+
+  passwordReset = email => this.auth.sendPasswordResetEmail(email);
+
+  signOut = () => this.auth.signOut();
+
+  addUser = (uid, userData) =>
+    this.db
+      .collection('users')
+      .doc(uid)
+      .set(userData);
+
+  getUser = uid =>
+    this.db
+      .collection('users')
+      .doc(uid)
+      .get();
 }
-
-
 
 export default Firebase;

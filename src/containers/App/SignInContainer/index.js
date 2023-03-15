@@ -25,7 +25,7 @@ class SignInContainer extends Component {
       .signIn(email, password)
       .then(success => {
         const user = success.user;
-        // console.log(user);
+         console.log(user);
 
         const userData = {
           email: user.email
@@ -46,4 +46,10 @@ class SignInContainer extends Component {
   }
 }
 
-export default SignInContainer;
+export default compose(
+  connect(
+    null,
+    { SignInAction }
+  ),
+  withFirebase
+)(SignInContainer)
