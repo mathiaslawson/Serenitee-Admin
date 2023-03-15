@@ -14,11 +14,14 @@ class Firebase {
     this.auth = getAuth();
     this.firestore = getFirestore();
   }
+  
 
-  signIn = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
-
- 
+  signIn = (email, password) =>{
+    this.auth.signInWithEmailAndPassword(email, password) ;
+   
+  }
 }
+
+
 
 export default Firebase;

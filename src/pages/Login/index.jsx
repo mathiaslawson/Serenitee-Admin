@@ -52,7 +52,7 @@ const Login = ({onChange, onSubmit}) => {
             Welcome Back!!
           </Typography>
           
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={onSubmit}>
             <Box
               margin='2rem auto'
             >

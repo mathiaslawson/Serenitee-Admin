@@ -7,7 +7,7 @@ const PublicRoute = ({ user, component: Component, ...rest }) => (
   <Route
     {...rest}
     component={ props =>
-      !user ? <Component {...props} /> : <Redirect to={ROUTES.SIGN_IN} />
+      !user ? <Component {...props} /> : <Redirect to={ROUTES.HOME} />
     }
   />
 );
