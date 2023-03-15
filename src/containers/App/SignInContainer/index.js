@@ -8,7 +8,8 @@ import { withFirebase } from '../../../services';
 class SignInContainer extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    error: ''
   };
 
   handleChange = e => {
@@ -36,13 +37,19 @@ class SignInContainer extends Component {
       .catch(error => {
         const errorMessage = error.message;
         console.log(errorMessage);
+
+        this.setState({error: errorMessage})
       })
     console.log(this.state.email, this.state.password);
   
   };
 
   render() {
-    return <Login onChange={this.handleChange} onSubmit={this.handleSubmit} />;
+    return <Login
+    onChange={this.handleChange} 
+    onSubmit={this.handleSubmit} 
+    error= {this.state.error}
+    />;
   }
 }
 

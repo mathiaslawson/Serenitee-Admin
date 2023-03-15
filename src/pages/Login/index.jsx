@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Login = ({onChange, onSubmit}) => {
+const Login = ({onChange, onSubmit, error}) => {
   const classes = useStyles();
 
   return (
@@ -89,7 +89,7 @@ const Login = ({onChange, onSubmit}) => {
               onChange={onChange}
             />
                  {/* Error message */}
-                 {/* {error && <p>{error.message}</p>} */}
+                <p>{error}</p>
             <br />
             <br />
             <Button
