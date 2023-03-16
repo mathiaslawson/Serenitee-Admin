@@ -1,11 +1,13 @@
 import React from 'react';
-import { Grid, TextField, Button, Link, Typography } from '@mui/material';
+import { Grid, TextField, Button, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import Google from '../../components/OAuthButtons/Google';
 import Microsoft from '../../components/OAuthButtons/Microsoft';
 import './login.css'
 import { Box } from '@mui/material';
 import { display } from '@mui/system';
+import {Link} from 'react-router-dom'
+import * as routes from '../../constants/routes'
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +50,7 @@ const Login = ({onChange, onSubmit, error}) => {
       <Grid item xs={false} sm={4} md={7} className='bg'/>
       <Grid item xs={12} sm={8} md={5} component="section" elevation={6} square>
         <div className={classes.paper}>
-          <Typography variant="h2" fontWeight='bold' width='100%'>
+          <Typography variant="h3" fontWeight='bold' width='100%' fontSize='1.9rem'>
             Welcome Back!!
           </Typography>
           
@@ -116,13 +118,13 @@ const Login = ({onChange, onSubmit, error}) => {
                 gap: '0.5rem',
                 width: 'max-content'
               }}>
-              <Typography fontWeight='' variant='h6' color="black">
+              <Typography fontWeight='' variant='h6' color="black" fontSize='0.8rem'>
                          Can't remember your password?
                     </Typography>
-                <Link href="#" variant="body2" style={{
+                <Link variant="body2" style={{
                     textDecoration: 'none'
                 }}>
-                    <Typography fontWeight='' variant='h6' color="#699958">
+                    <Typography fontWeight='' variant='h6' color="#699958" fontSize='0.8rem'>
                          Reset Passowrd
                     </Typography>
                 </Link>
@@ -133,15 +135,15 @@ const Login = ({onChange, onSubmit, error}) => {
                 display: 'flex',
                 gap: '0.5rem'
               }}>
-                    <Typography fontWeight='' variant='h6' color="black">
+                    <Typography fontWeight='' variant='h6' color="black" fontSize='0.8rem'>
                          Don't have an account?
                     </Typography>
                 <Link href="#" variant="body2" style={{
                     textDecoration: 'none',
                     display: 'flex',
                     gap: '0.5rem'
-                }}>
-                   <Typography fontWeight='' variant='h6' color="#699958">
+                }} to={routes.SIGN_UP}>
+                   <Typography fontWeight='' variant='h6' color="#699958" fontSize='0.8rem'>
                          Get Started
                     </Typography>
                 </Link>

@@ -1,6 +1,9 @@
 import React from 'react';
-import { Grid, TextField, Button, Link, Typography } from '@mui/material';
+import { Grid, TextField, Button, Link, Typography, Box } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
+import Google from '../../components/OAuthButtons/Google';
+import Microsoft from '../../components/OAuthButtons/Microsoft';
+import * as routes from '../../constants/routes'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,10 +36,21 @@ const Register = ({onSubmit, onChange}) => {
       <Grid item xs={false} sm={4} md={7} className='bg'/>
       <Grid item xs={12} sm={8} md={5} component="section" elevation={6} square>
         <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Sign up
+        <Typography variant="h3" fontWeight='bold' width='100%' fontSize='1.9rem'>
+            Get Started
           </Typography>
           <form className={classes.form} onSubmit={onSubmit}>
+          <Box
+              margin='2rem auto'
+            >
+                <Google />
+                <Microsoft />
+            </Box>
+
+            <Typography color='#969CA5'>
+                  Or Sign up with Email
+            </Typography>
+            <br />
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -102,6 +116,7 @@ const Register = ({onSubmit, onChange}) => {
                 />
               </Grid>
               <Grid item xs={12}>
+              <br />
                 <Button
                   type="submit"
                   fullWidth
@@ -111,12 +126,28 @@ const Register = ({onSubmit, onChange}) => {
                 >
                   Sign Up
                 </Button>
+                <br /><br />
+                <hr style={{
+                
+              }}/>
               </Grid>
             </Grid>
             <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+              <Grid item style={{
+                display: 'flex',
+                gap: '0.5rem'
+              }}>
+              <Typography fontWeight='' variant='h6' color="black" fontSize='0.8rem'>
+                         Don't have an account?
+                    </Typography>
+              <Link href="#" variant="body2" style={{
+                    textDecoration: 'none',
+                    display: 'flex',
+                    gap: '0.5rem'
+                }} to={routes.SIGN_IN}>
+                   <Typography fontWeight='' variant='h6' color="#699958" fontSize='0.8rem'>
+                         Get Started
+                    </Typography>
                 </Link>
               </Grid>
             </Grid>
