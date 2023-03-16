@@ -8,12 +8,10 @@ function index() {
     <Box
       style={{
         backgroundImage: 'linear-gradient(to bottom right, #5f2c82, #49a09d)',
-        padding: '10rem 2rem',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        margin: '-15rem'
       }}
     >
       <Box
@@ -38,26 +36,13 @@ function index() {
          Serenitee Admin v0.1
         </Typography>
         
-        <br />
-        <Typography
-          variant='h1'
-          fontWeight='bold'
-          fontSize='clamp(1rem, 16vw, 4rem)'
-          style={{
-            background: '-webkit-linear-gradient(#e8edff, #ede8ff)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'text-gradient 5s ease infinite'
-          }}
-        >
-        Welcome, Mathias
-        </Typography>
+     
         
       </Box>
       <Box
         display='grid'
         justifyContent='center'
-        marginBottom= '2rem'
+        marginBottom= '16rem'
       >
         <Typography
           variant='h1'
