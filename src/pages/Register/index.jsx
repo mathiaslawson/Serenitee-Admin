@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Register = () => {
+const Register = ({onSubmit, onChange}) => {
   const classes = useStyles();
 
   return (
@@ -36,7 +36,7 @@ const Register = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={onSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -47,6 +47,7 @@ const Register = () => {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  onChange = {onChange}
                   autoFocus
                 />
               </Grid>
@@ -59,6 +60,7 @@ const Register = () => {
                   label="Last Name"
                   name="lastName"
                   autoComplete="lname"
+                  onChange = {onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -70,6 +72,7 @@ const Register = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange = {onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -82,6 +85,7 @@ const Register = () => {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange = {onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -94,6 +98,7 @@ const Register = () => {
                   type="password"
                   id="confirmPassword"
                   autoComplete="new-password"
+                  onChange = {onChange}
                 />
               </Grid>
               <Grid item xs={12}>
