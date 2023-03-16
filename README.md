@@ -14,7 +14,8 @@ Serenitee is a web application designed to enable health personnels to track the
 # Features
 - [x] Authentication
 
-# Auth Page
+# Auth & SignUp Page
 <p align = "center">
 <img src = "./readme_images/ss.png">
+<img src = "./readme_images/gs.png">
 </p>
