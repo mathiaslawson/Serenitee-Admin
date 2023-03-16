@@ -32,7 +32,7 @@ class SignUpContainer extends Component{
         .signUp(email, password)
         .then(success =>{
             const user = success.user
-console.log(user , 'signed up')
+
             const userData ={
                 firstName,
                 lastName,
