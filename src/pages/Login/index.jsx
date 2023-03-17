@@ -130,7 +130,7 @@ const Login = ({onChange, onSubmit, error}) => {
               <Typography fontWeight='' variant='h6' color="black" fontSize='0.8rem'>
                          Can't remember your password?
                     </Typography>
-                <Link variant="body2" style={{
+                <Link to={routes.RESET_PASSWORD} variant="body2" style={{
                     textDecoration: 'none'
                 }}>
                     <Typography fontWeight='' variant='h6' color="#699958" fontSize='0.8rem'>

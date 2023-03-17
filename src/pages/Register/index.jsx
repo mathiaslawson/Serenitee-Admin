@@ -138,15 +138,15 @@ const Register = ({onSubmit, onChange}) => {
                 gap: '0.5rem'
               }}>
               <Typography fontWeight='' variant='h6' color="black" fontSize='0.8rem'>
-                         Don't have an account?
+                        Already have an account?
                     </Typography>
-              <Link href="#" variant="body2" style={{
+              <Link to={routes.SIGN_IN} href="/signin" variant="body2" style={{
                     textDecoration: 'none',
                     display: 'flex',
                     gap: '0.5rem'
-                }} to={routes.SIGN_IN}>
+                }}>
                    <Typography fontWeight='' variant='h6' color="#699958" fontSize='0.8rem'>
-                         Get Started
+                         Sign In
                     </Typography>
                 </Link>
               </Grid>
