@@ -4,18 +4,34 @@ Serenitee is a web application designed to enable health personnels to track the
 ## Components an features checklist
 ## Admin Side
 
-# Stack
+# Stack & Technologies
 - [x] React.
 - [x] React Redux - for state management.
 - [ ] Redux Saga - to manage side effects from external API calls.
 - [x] Firebase Authentication (Work Email & Password).
 - [x] Firestrore - store data
 
-# Features
-- [x] Authentication
+## Features
+# Authentication
+- [x] Authentication with Email & Password
+- [x] Self Service with Work Email
+- [ ] Google OAuth
+- [ ] Engine to Validate Doctors 
 
-# Auth & SignUp Page
+# Dashboard
+- [ ] Track and Represent User (Patient) data (ID, mental healt problem)
+- [ ] Track and Represent (Admin/Doctors) data (Health ID, Medical Field)
+
+# ML Model
+- [ ] Use collected data to make precise predictions on the health progress of patients
+- [ ] Use collected data to make precise predictions on the working tactics employeed by doctors and provide suggestions on other methods to employ when working with patients.
+
+
+
+
+# Auth ,SignUp Page, Self Service Page
 <p align = "center">
 <img src = "./readme_images/ss.png">
 <img src = "./readme_images/gs.png">
+<img src = "./readme_images/service.png">
 </p>
