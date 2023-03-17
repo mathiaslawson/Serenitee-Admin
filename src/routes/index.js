@@ -6,7 +6,7 @@ import SignUpContainer from '../containers/SignUpContainer';
 import HomeContainer from '../containers/HomeContainer';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute'
-import Register from '../pages/Register';
+import ResetPasswordContainer from '../containers/ResetPasswordContainer';
 import NotFound from '../pages/NotFound'
 
 
@@ -15,6 +15,7 @@ const Routes = () => {
     <Switch>
       <PublicRoute path={ROUTES.SIGN_IN} component={SignInContainer} />
       <PublicRoute path={ROUTES.SIGN_UP} component={SignUpContainer} />
+      <PublicRoute path={ROUTES.RESET_PASSWORD} component={ResetPasswordContainer} />
       <PrivateRoute path={ROUTES.HOME} component={HomeContainer} />
       <Route component={NotFound} />
     </Switch>
