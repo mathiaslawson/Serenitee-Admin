@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ResetPassword = ({onChange, onSubmit, error}) => {
+const ResetPassword = ({onChange, onSubmit, error, success}) => {
   const classes = useStyles();
 
   return (
@@ -73,10 +73,14 @@ const ResetPassword = ({onChange, onSubmit, error}) => {
             />
                  {/* Error message */}
                 <p>
-                {error && 
+                {error || success && 
                 <Stack sx={{ width: '100%' }} spacing={2}>
-                  <Alert variant="filled" severity="error">
-                  { error.split("Firebase: ")[1].split("(")[0].trim()}
+                  <Alert variant="filled" severity={
+                    error ? 'error' : 'success' 
+                  }>
+                      {
+                        success
+                      }
                   </Alert>
                   </Stack>}
                 </p>

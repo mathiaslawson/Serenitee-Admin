@@ -6,15 +6,12 @@ import {withFirebase} from '../../services/index'
 import ResetPassword from '../../pages/ResetPassword';
 import {getAuth, sendPasswordResetEmail} from 'firebase/auth'
 
-
-
 class ResetPasswordContainer extends Component{
     state = {
         email: '',
-        error: ''
+        error: ``,
+        success: ``
     }
-
-   
 
     handleChange = (e) =>{
         this.setState({[e.target.name]: e.target.value})
@@ -23,20 +20,25 @@ class ResetPasswordContainer extends Component{
     handleSubmit = async (e) =>{
         e.preventDefault() 
 
-        const {email} = this.state
+        const {email, error, success} = this.state
         console.log(email)
         
         try {
             const auth = getAuth()
             await sendPasswordResetEmail(auth, email)
-           console.log('send')
+            this.setState({
+                success: `Reset link sent to ${email}`
+            })
           } catch (error) {
             console.log(error)
+            this.setState({
+                error: `Email not Sent, Try again after some few minutes`
+            })
           }
     }
 
     render(){
-        return <ResetPassword onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        return <ResetPassword onChange={this.handleChange} onSubmit={this.handleSubmit}  success={this.state.success} error={this.state.error}/>
     }
 }
 
