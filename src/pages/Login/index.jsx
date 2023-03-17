@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, TextField, Button, Typography } from '@mui/material';
+import Alert from '@mui/material/Alert'
+import Stack from '@mui/material/Stack'
 import { makeStyles } from '@material-ui/core/styles';
 import Google from '../../components/OAuthButtons/Google';
 import Microsoft from '../../components/OAuthButtons/Microsoft';
@@ -91,7 +93,14 @@ const Login = ({onChange, onSubmit, error}) => {
               onChange={onChange}
             />
                  {/* Error message */}
-                <p>{error}</p>
+                <p>
+                {error && 
+                <Stack sx={{ width: '100%' }} spacing={2}>
+                  <Alert variant="filled" severity="error">
+                  { error.split("Firebase: ")[1].split("(")[0].trim()}
+                  </Alert>
+                  </Stack>}
+                </p>
             <br />
             <br />
             <Button

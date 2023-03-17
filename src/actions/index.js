@@ -1,5 +1,4 @@
-
 import SignIn from './SignIn';
+import SignOut from './SignOut'
 
-
-export {SignIn};
+export {SignIn, SignOut};

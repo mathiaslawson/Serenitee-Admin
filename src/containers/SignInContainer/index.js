@@ -9,7 +9,8 @@ import Login from '../../pages/Login'
 class SignInContainer extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    error: ''
   };
 
   handleChange = e => {
@@ -37,12 +38,29 @@ class SignInContainer extends Component {
       })
       .catch(error => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+            
+      //  if(errorMessage === "Firebase: There is no user record corresponding to this identifier. The user may have been deleted. (auth/user-not-found).")
+      //   {
+      //      this.setState(
+      //       {
+      //         error: 'Wrong Email Entered, please check and try'
+      //       }
+      //      )
+      //  } 
+      
+
+      this.setState({
+        error: errorMessage
+      })
+      
       });
   };
 
   render() {
-    return <Login onChange={this.handleChange} onSubmit={this.handleSubmit} />;
+    return <Login onChange={this.handleChange} 
+    onSubmit={this.handleSubmit}
+    error={this.state.error}
+    />;
   }
 }
 
