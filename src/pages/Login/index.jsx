@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Grid, TextField, Button, Typography } from '@mui/material';
 import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
@@ -10,6 +10,7 @@ import { Box } from '@mui/material';
 import { display } from '@mui/system';
 import {Link} from 'react-router-dom'
 import * as routes from '../../constants/routes'
+import Loader from '../../components/Loader';
 
 
 const useStyles = makeStyles(theme => ({
@@ -44,8 +45,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 const Login = ({onChange, onSubmit, error}) => {
   const classes = useStyles();
+
+  const [loading, setLoading] = useState(false)
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -94,13 +99,16 @@ const Login = ({onChange, onSubmit, error}) => {
             />
                  {/* Error message */}
                 <p>
-                {error && 
+                {/* {!loading ? <Loader display={display}/> :
                 <Stack sx={{ width: '100%' }} spacing={2}>
                   <Alert variant="filled" severity="error">
-                  { error.split("Firebase: ")[1].split("(")[0].trim()}
+                  { }
                   </Alert>
-                  </Stack>}
+                  </Stack>} */}
+                  {error}
                 </p>
+
+
             <br />
             <br />
             <Button

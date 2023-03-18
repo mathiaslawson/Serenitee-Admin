@@ -1,23 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { SignIn as SignInAction } from '../../actions';
 import { withFirebase } from '../../services/index';
+import Loader from '../../components/Loader';
+import Alert from '@mui/material/Alert'
+import Stack from '@mui/material/Stack'
 
 import Login from '../../pages/Login'
+
+
 
 class SignInContainer extends Component {
   state = {
     email: '',
     password: '',
-    error: ''
+    error: null,
+    loading: false,
+    //loaderMounted: false
   };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit =  (e) => {
     e.preventDefault();
 
     const { firebase, SignInAction } = this.props;
@@ -31,29 +38,40 @@ class SignInContainer extends Component {
 
         const userData = {
           email: user.email
+          
         };
+  
+    this.setState({
+      loading: true,
+      error: !this.state.loading && 
+             <>
+                 <Loader />    
+                 {SignInAction(userData)}     
+              </>
+    })
+    
+    SignInAction(userData) 
 
-        SignInAction(userData);
-        console.log('worked')
+
+    
       })
       .catch(error => {
-        const errorMessage = error.message;
-            
-      //  if(errorMessage === "Firebase: There is no user record corresponding to this identifier. The user may have been deleted. (auth/user-not-found).")
-      //   {
-      //      this.setState(
-      //       {
-      //         error: 'Wrong Email Entered, please check and try'
-      //       }
-      //      )
-      //  } 
-      
-
+      const errorMessage = error.message;  
+  
       this.setState({
-        error: errorMessage
-      })
+        loading: false,
+        error: (
+          <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert variant="filled" severity="error">
+              {errorMessage}
+            </Alert>
+          </Stack>
+        )
+      });
       
       });
+
+    
   };
 
   render() {
