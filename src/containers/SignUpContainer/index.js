@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import {SignIn} from '../../actions'
 import {withFirebase} from '../../services/index'
 import Register from '../../pages/Register'
+import Alert from '@mui/material/Alert'
+import Stack from '@mui/material/Stack'
 
 
 
@@ -50,7 +52,18 @@ class SignUpContainer extends Component{
         })
 
         .catch(error => {
-            const errorMessage = error.message          
+            const errorMessage = error.message;  
+  
+            this.setState({
+              loading: false,
+              error: (
+                <Stack sx={{ width: '100%' }} spacing={2}>
+                  <Alert variant="filled" severity="error">
+                    {errorMessage}
+                  </Alert>
+                </Stack>
+              )
+            });          
         })
     }
 

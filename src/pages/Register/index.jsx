@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Register = ({onSubmit, onChange}) => {
+const Register = ({onSubmit, onChange, error}) => {
   const classes = useStyles();
 
   return (
@@ -115,6 +115,10 @@ const Register = ({onSubmit, onChange}) => {
                   onChange = {onChange}
                 />
               </Grid>
+              <p>
+
+                {error}
+              </p>
               <Grid item xs={12}>
               <br />
                 <Button
