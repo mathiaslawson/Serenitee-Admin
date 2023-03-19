@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { SignIn } from '../../actions';
 import { withFirebase } from '../../services/index';
 import Routes from '../../routes';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class App extends Component {

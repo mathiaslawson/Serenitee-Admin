@@ -3,11 +3,13 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { SignIn as SignInAction } from '../../actions';
 import { withFirebase } from '../../services/index';
-import Loader from '../../components/Loader';
+
 import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
 
 import Login from '../../pages/Login'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,6 +21,8 @@ class SignInContainer extends Component {
     loading: false,
     //loaderMounted: false
   };
+
+  
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -40,19 +44,19 @@ class SignInContainer extends Component {
           email: user.email
           
         };
+
+     const showToastMessage = () => {
+          toast.success('Logging In', {
+              position: toast.POSITION.TOP_RIGHT
+          });
+      };   
   
-    this.setState({
-      loading: true,
-      error: !this.state.loading && 
-             <>
-                 <Loader />    
-                 {SignInAction(userData)}     
-              </>
-    })
+    showToastMessage()
+
+    setTimeout(function() {
+      SignInAction(userData);
+    }, 4000);
     
-    SignInAction(userData) 
-
-
     
       })
       .catch(error => {
@@ -75,10 +79,13 @@ class SignInContainer extends Component {
   };
 
   render() {
-    return <Login onChange={this.handleChange} 
+    
+return<><Login onChange={this.handleChange} 
     onSubmit={this.handleSubmit}
     error={this.state.error}
-    />;
+    />
+    <ToastContainer />
+    </>
   }
 }
 

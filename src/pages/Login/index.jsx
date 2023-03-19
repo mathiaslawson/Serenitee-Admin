@@ -11,6 +11,8 @@ import { display } from '@mui/system';
 import {Link} from 'react-router-dom'
 import * as routes from '../../constants/routes'
 import Loader from '../../components/Loader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +53,15 @@ const Login = ({onChange, onSubmit, error}) => {
   const classes = useStyles();
 
   const [loading, setLoading] = useState(false)
+  
+  const showToastMessage = () => {
+    toast.success('Loggin In ', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
 
+  
+console.log(Loader)
   return (
     <Grid container component="main" className={classes.root}>
       <Grid item xs={false} sm={4} md={7} className='bg'/>
@@ -99,13 +109,7 @@ const Login = ({onChange, onSubmit, error}) => {
             />
                  {/* Error message */}
                 <p>
-                {/* {!loading ? <Loader display={display}/> :
-                <Stack sx={{ width: '100%' }} spacing={2}>
-                  <Alert variant="filled" severity="error">
-                  { }
-                  </Alert>
-                  </Stack>} */}
-                  {error}
+                 {error}
                 </p>
 
 
@@ -170,6 +174,7 @@ const Login = ({onChange, onSubmit, error}) => {
           </form>
         </div>
       </Grid>
+      <ToastContainer />
     </Grid>
   );
 };

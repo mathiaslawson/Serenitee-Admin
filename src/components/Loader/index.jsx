@@ -1,17 +1,15 @@
 import React, {Component} from 'react'
-import load from './leafload.gif'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Loader() {
-  const state = {
-      loaderMounted: false
-  }
+
 
   return (
    <>
-  
-      <img src={load} width='50rem'></img>
    
+      {/* <img src={load} width='50rem'></img> */}
+     
    </>
   )
 }

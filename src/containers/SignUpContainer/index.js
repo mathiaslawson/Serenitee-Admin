@@ -6,6 +6,8 @@ import {withFirebase} from '../../services/index'
 import Register from '../../pages/Register'
 import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -15,7 +17,8 @@ class SignUpContainer extends Component{
         lastName: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        error: null
     }
 
 
@@ -30,26 +33,35 @@ class SignUpContainer extends Component{
         const {firebase, SignIn} = this.props
         const {firstName, lastName, email, password} = this.state
 
+        const showToastMessage = () => {
+            toast.success('Creating your account.', {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        };
+
         firebase 
         .signUp(email, password)
         .then(success =>{
             const user = success.user
-
+            showToastMessage()
             const userData ={
                 firstName,
                 lastName,
                 email
             }
+
+
            
-            SignIn(userData)
            
             return firebase.addUser(user.uid, userData);
         })
         .then(()=> firebase.getUser(firebase.auth.currentUser.uid))
         .then(querySnapshot => {
             const userData = querySnapshot.data()
-            SignIn(userData)
+           SignIn(userData)
         })
+
+
 
         .catch(error => {
             const errorMessage = error.message;  
@@ -68,7 +80,9 @@ class SignUpContainer extends Component{
     }
 
     render(){
-        return <Register onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        return<><Register onChange={this.handleChange} onSubmit={this.handleSubmit} error={this.state.error}/>
+        <ToastContainer />
+        </>
     }
 }
 
