@@ -15,11 +15,13 @@ class HomeContainer extends Component {
       .then(() => {
         SignOut();
       })
+      console.log(this.props, 1)
       .catch(error => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
   };
+
 
   render() {
     return <Home user={this.props.user} handleSignOut={this.handleSignOut} />;
@@ -27,7 +29,7 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { user: state.auth.user };
+  return { user: state.auth.user};
 };
 
 export default compose(

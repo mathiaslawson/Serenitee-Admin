@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { SignIn as SignInAction } from '../../actions';
@@ -38,44 +38,36 @@ class SignInContainer extends Component {
       .signIn(email, password)
       .then(success => {
         const user = success.user;
-        // console.log(user);
-
-        const userData = {
-          email: user.email
-          
-        };
-
+       
      const showToastMessage = () => {
           toast.success('Logging In', {
               position: toast.POSITION.TOP_RIGHT
           });
       };   
-  
-    showToastMessage()
 
-    setTimeout(function() {
-      SignInAction(userData);
-    }, 4000);
-    
-    
+      showToastMessage()
+
+      return firebase.getUser(user.uid)
+      })
+      .then( querySnapshot => {
+        const userData = querySnapshot.data()        
+        SignInAction(userData);
+  
+        
       })
       .catch(error => {
       const errorMessage = error.message;  
   
       this.setState({
         loading: false,
-        error: (
+        error: 
           <Stack sx={{ width: '100%' }} spacing={2}>
             <Alert variant="filled" severity="error">
               {errorMessage}
             </Alert>
-          </Stack>
-        )
-      });
-      
-      });
-
-    
+          </Stack>       
+      }); 
+      });    
   };
 
   render() {

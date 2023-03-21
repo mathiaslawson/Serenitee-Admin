@@ -34,6 +34,10 @@ function index({user, handleSignOut}) {
           }}
         >
          Serenitee Admin v0.1
+         <br />
+         {user.firstName}
+         {user.lastName}
+         {user.email}
         </Typography>
         
      
@@ -69,6 +73,10 @@ function index({user, handleSignOut}) {
             }}
           />
         </Box>
+        <button>
+            {handleSignOut}
+            SignOut
+        </button>
       </Box>
     </Box>
   )

@@ -1,17 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Grid, TextField, Button, Typography } from '@mui/material';
-import Alert from '@mui/material/Alert'
-import Stack from '@mui/material/Stack'
 import { makeStyles } from '@material-ui/core/styles';
 import Google from '../../components/OAuthButtons/Google';
 import Microsoft from '../../components/OAuthButtons/Microsoft';
 import './login.css'
 import { Box } from '@mui/material';
-import { display } from '@mui/system';
 import {Link} from 'react-router-dom'
 import * as routes from '../../constants/routes'
-import Loader from '../../components/Loader';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -51,17 +46,8 @@ const useStyles = makeStyles(theme => ({
 
 const Login = ({onChange, onSubmit, error}) => {
   const classes = useStyles();
-
-  const [loading, setLoading] = useState(false)
   
-  const showToastMessage = () => {
-    toast.success('Loggin In ', {
-        position: toast.POSITION.TOP_RIGHT
-    });
-};
 
-  
-console.log(Loader)
   return (
     <Grid container component="main" className={classes.root}>
       <Grid item xs={false} sm={4} md={7} className='bg'/>
@@ -174,7 +160,6 @@ console.log(Loader)
           </form>
         </div>
       </Grid>
-      <ToastContainer />
     </Grid>
   );
 };

@@ -49,15 +49,14 @@ class SignUpContainer extends Component{
                 lastName,
                 email
             }
-
-
-           
+        
            
             return firebase.addUser(user.uid, userData);
         })
         .then(()=> firebase.getUser(firebase.auth.currentUser.uid))
         .then(querySnapshot => {
             const userData = querySnapshot.data()
+            console.log(userData)
            SignIn(userData)
         })
 
