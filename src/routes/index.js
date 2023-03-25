@@ -8,6 +8,7 @@ import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute'
 import ResetPasswordContainer from '../containers/ResetPasswordContainer';
 import NotFound from '../pages/NotFound'
+import Dashboard from '../pages/Dashboard'
 
 
 const Routes = () => {
@@ -17,6 +18,7 @@ const Routes = () => {
       <PublicRoute path={ROUTES.SIGN_UP} component={SignUpContainer} />
       <PublicRoute path={ROUTES.RESET_PASSWORD} component={ResetPasswordContainer} />
       <PrivateRoute path={ROUTES.HOME} component={HomeContainer} />
+      <PrivateRoute path={ROUTES.DASHBOARD} component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   );

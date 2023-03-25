@@ -13,11 +13,13 @@ class App extends Component {
     console.log(this.props.user);
 
     return (
+      <div className='app'>
       <Fragment>
        
         <Routes />
         
       </Fragment>
+      </div>
     );
   }
 }

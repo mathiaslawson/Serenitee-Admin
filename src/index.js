@@ -8,6 +8,7 @@ import App from './containers/App';
 import { ColorModeContext, useMode } from './theme';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
+import './index.css'
 
 
 
@@ -21,7 +22,7 @@ function Index() {
         <ColorModeContext.Provider value={colorMode}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-          <div className='app'>
+          <div >
             <main className='content'>
           <Router>
             <App />
