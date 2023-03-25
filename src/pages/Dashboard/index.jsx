@@ -1,18 +1,18 @@
 import React from 'react'
 import { Box } from '@mui/material'
 
-function index() {
+function Dashboard({user}) {
   return (
    <>
      <Box
        display='grid'
-       gridAutoFlow='row'
+       gridAutoFlow='column'
      >
             <Box
              gridRow='10'
              gridColumn='10'
             >
-                Bloack
+                WELCOME, DR .{user.firstName} 
             </Box>
             <Box>
                 Bloack
@@ -29,4 +29,4 @@ function index() {
   )
 }
 
-export default index
+export default Dashboard
