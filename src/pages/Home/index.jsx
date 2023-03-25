@@ -2,83 +2,13 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import './home.css'
 import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
+import Sidebar from '../../components/global/Sidebar';
 
 function index({user, handleSignOut}) {
   return (
-    <Box
-      style={{
-        backgroundImage: 'linear-gradient(to bottom right, #5f2c82, #49a09d)',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
-      <Box
-        display='flex'
-        flexDirection='column'
-        justifyContent='center'
-        alignItems='center'
-        flex= '1 1 0'
-        marginBottom= '2rem'
-      >
-        <Typography
-          fontWeight='lighter'
-          margin='10rem'
-          fontSize='clamp(1.5rem, 8vw, 3rem)'
-          style={{
-            background: '-webkit-linear-gradient(#e8edff, #ede8ff)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'text-gradient 5s ease infinite'
-          }}
-        >
-         Serenitee Admin v0.1
-         <br />
-         {user.firstName}
-         {user.lastName}
-         {user.email}
-        </Typography>
-        
-     
-        
-      </Box>
-      <Box
-        display='grid'
-        justifyContent='center'
-        marginBottom= '16rem'
-      >
-        <Typography
-          variant='h1'
-          fontWeight='bold'
-          fontSize='clamp(1.5rem, 6vw, 3rem)'
-          style={{
-            background: '-webkit-linear-gradient(#e8edff, #ede8ff)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'text-gradient 5s ease infinite'
-          }}
-        >
-          UNDER CONSTRUCTION 
-        </Typography>
-        <Box 
-          display='flex'
-          justifyContent='center'
-          marginTop='1rem'
-        >
-          <EngineeringOutlinedIcon 
-            style={{
-              color: '#e8edff',
-              fontSize: 'clamp(5rem, 20vw, 15rem)',
-            }}
-          />
-        </Box>
-        <button>
-            {handleSignOut}
-            SignOut
-        </button>
-      </Box>
-    </Box>
+    <>
+       <Sidebar />
+    </>
   )
 }
 

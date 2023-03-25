@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Register = ({onSubmit, onChange, error}) => {
+const Register = ({onSubmit, onChange, error, onClick}) => {
   const classes = useStyles();
 
   return (
@@ -39,14 +39,17 @@ const Register = ({onSubmit, onChange, error}) => {
         <Typography variant="h3" fontWeight='bold' width='100%' fontSize='1.9rem'>
             Get Started
           </Typography>
-          <form className={classes.form} onSubmit={onSubmit}>
           <Box
               margin='2rem auto'
             >
-                <Google />
-                <Microsoft />
+              <span onClick={onClick}>
+                   <Google/>
+              </span>
+                
+                <Microsoft onClick={onClick}/>
             </Box>
 
+          <form className={classes.form} onSubmit={onSubmit}>
             <Typography color='#969CA5'>
                   Or Sign up with Email
             </Typography>

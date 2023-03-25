@@ -4,7 +4,9 @@ import {connect} from 'react-redux'
 import {SignIn} from '../../actions'
 import {withFirebase} from '../../services/index'
 import ResetPassword from '../../pages/ResetPassword';
-import {getAuth, sendPasswordResetEmail} from 'firebase/auth'
+import {getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup} from 'firebase/auth'
+import {doc, setDoc, getDoc, serverTimestamp} from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore';
 
 class ResetPasswordContainer extends Component{
     state = {
@@ -20,7 +22,7 @@ class ResetPasswordContainer extends Component{
     handleSubmit = async (e) =>{
         e.preventDefault() 
 
-        const {email, error, success} = this.state
+        const {email} = this.state
         console.log(email)
         
         try {
@@ -36,6 +38,8 @@ class ResetPasswordContainer extends Component{
             })
           }
     }
+
+   
 
     render(){
         return <ResetPassword onChange={this.handleChange} onSubmit={this.handleSubmit}  success={this.state.success} error={this.state.error}/>

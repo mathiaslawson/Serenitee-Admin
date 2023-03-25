@@ -8,6 +8,9 @@ import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {doc, setDoc, getDoc, serverTimestamp, getFirestore} from 'firebase/firestore'
+import {getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup} from 'firebase/auth'
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -48,9 +51,7 @@ class SignUpContainer extends Component{
                 firstName,
                 lastName,
                 email
-            }
-        
-           
+            }      
             return firebase.addUser(user.uid, userData);
         })
         .then(()=> firebase.getUser(firebase.auth.currentUser.uid))
@@ -78,8 +79,44 @@ class SignUpContainer extends Component{
         })
     }
 
+     // Google OAuth
+
+     handleOAuth = async (e) =>{
+       console.log('click')
+
+        try{
+          const auth = getAuth()
+          const db = getFirestore()
+          const provider = new GoogleAuthProvider()
+          const result = await signInWithPopup(auth, provider)
+          const user = result.user
+          //check for user
+          const docRef = doc(db, 'users', user.id)
+          const docSnap = await getDoc(docRef)
+
+        
+          console.log('callrd')
+          //if user does not exist 
+          if(!docSnap.exists()){
+            await setDoc(doc(db, 'users', user.uid), {
+               firstName: user.firstName,
+               lastName: user.lastName,
+               email: user.email,
+            })
+       }      
+
+       const history = useHistory()
+       history.push('/')
+
+    }catch(error){
+        console.log(error)
+        
+    }
+
+     }
+
     render(){
-        return<><Register onChange={this.handleChange} onSubmit={this.handleSubmit} error={this.state.error}/>
+        return<><Register onChange={this.handleChange} onSubmit={this.handleSubmit} error={this.state.error} onClick={this.handleOAuth}/>
         <ToastContainer />
         </>
     }
