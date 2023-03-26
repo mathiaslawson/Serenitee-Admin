@@ -1,5 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Box, Typography } from '@mui/material';
 
 const data = [
   { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
@@ -13,15 +14,20 @@ const data = [
 
 const Chart = () => {
   return (
-    <LineChart width={500} height={300} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+    <Box backgroundColor='white' boxShadow='1px 1px 10px #e5e6ec' padding='2rem'>
+    <Typography fontWeight='light' fontSize='1.4rem' paddingBottom='2rem' marginLeft='1rem'>
+        Analytics
+    </Typography>
+    <LineChart width={450} height={300} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
       <XAxis dataKey="name" />
-      <YAxis />
-      <CartesianGrid strokeDasharray="3 3" />
+      {/* <YAxis /> */}
+      <CartesianGrid strokeDasharray="1 3" />
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
     </LineChart>
+    </Box>
   );
 };
 

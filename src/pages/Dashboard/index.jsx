@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import React from 'react'
 import Stats from '../../components/Stats'
 import Consultations from '../../components/Stats/Consultations'
+import Chart from '../../components/Chart'
 
 function Dashboard() {
   return (
@@ -23,7 +24,10 @@ function Dashboard() {
               >
                     <Consultations />
              </Box>
- 
+             <Box
+              >
+                    <Chart />
+             </Box>
        </Box>  
     </>
   )
