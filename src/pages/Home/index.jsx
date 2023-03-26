@@ -29,6 +29,7 @@ function index({user, handleSignOut}) {
           position='sticky'
           marginLeft='7rem'
           marginTop='-95vh'
+          width='90%'
          >
              {currentRoute === '/dashboard' ? <Dashboard user={user} /> : null }
          </Box>
