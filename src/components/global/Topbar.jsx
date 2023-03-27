@@ -9,7 +9,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { palette } from "@mui/system";
-// import profilepic from './user.jpg'
+import profilepic from './profile.jpeg'
 import Sidebar from "./Sidebar";
 
 const Topbar = () => {
@@ -53,7 +53,7 @@ const Topbar = () => {
                   alt="profile-user"
                   width="max-content"
                   height="50px"
-                //   src={profilepic}
+                  src={profilepic}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box> 
@@ -69,7 +69,7 @@ const Topbar = () => {
                   Mathias Lawson
                 </Typography>
                 <Typography variant="h6" color={colors.black[300]} width='max-content' marginLeft='5px'>
-                 Software Messenger
+                 Software Doctor
                 </Typography>
               </Box>
         </Box>

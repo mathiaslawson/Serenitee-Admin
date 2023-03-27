@@ -79,7 +79,8 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h2" color={colors.black[100]}>
+                <Typography variant="h2" color={colors.black[100]} 
+                >
                   Serenitee
                 </Typography>
                 {/* <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
