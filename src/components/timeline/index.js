@@ -10,7 +10,7 @@ import { Box, Typography } from '@mui/material';
 export default function TimeLine() {
   return (
     <Timeline style={{marginLeft: '-15rem'}}>
-      <TimelineItem>
+      <TimelineItem >
         <TimelineSeparator>
           <TimelineDot color='success'/>
           <TimelineConnector />
@@ -42,13 +42,79 @@ export default function TimeLine() {
           <TimelineDot color='success'/>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent>Code</TimelineContent>
+        <TimelineContent>
+        <Box display='grid'>
+                 <Box>
+                    <Typography>
+                        8:30am
+                    </Typography>
+                 </Box>
+                 <Box display='grid' backgroundColor='#f2faef ' padding='1rem' borderRadius='0.5rem'>
+                     <Typography fontWeight='bold'>
+                        Consultation
+                     </Typography>
+                     <Typography color='gray' fontWeight='light'>
+                        8:30am - 9:30am
+                     </Typography>
+                     <br />
+                     <Typography fontWeight='bold'>
+                        Mathias Lawson
+                     </Typography>
+                 </Box>
+          </Box>
+        </TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineSeparator>
           <TimelineDot color='success'/>
         </TimelineSeparator>
-        <TimelineContent>Sleep</TimelineContent>
+        <TimelineContent>
+        <Box display='grid'>
+                 <Box>
+                    <Typography>
+                        8:30am
+                    </Typography>
+                 </Box>
+                 <Box display='grid' backgroundColor='#f2faef ' padding='1rem' borderRadius='0.5rem'>
+                     <Typography fontWeight='bold'>
+                        Consultation
+                     </Typography>
+                     <Typography color='gray' fontWeight='light'>
+                        8:30am - 9:30am
+                     </Typography>
+                     <br />
+                     <Typography fontWeight='bold'>
+                        Mathias Lawson
+                     </Typography>
+                 </Box>
+          </Box>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot color='success'/>
+        </TimelineSeparator>
+        <TimelineContent>
+        <Box display='grid'>
+                 <Box>
+                    <Typography>
+                        8:30am
+                    </Typography>
+                 </Box>
+                 <Box display='grid' backgroundColor='#f2faef ' padding='1rem' borderRadius='0.5rem'>
+                     <Typography fontWeight='bold'>
+                        Consultation
+                     </Typography>
+                     <Typography color='gray' fontWeight='light'>
+                        8:30am - 9:30am
+                     </Typography>
+                     <br />
+                     <Typography fontWeight='bold'>
+                        Mathias Lawson
+                     </Typography>
+                 </Box>
+          </Box>
+        </TimelineContent>
       </TimelineItem>
     </Timeline>
   );
