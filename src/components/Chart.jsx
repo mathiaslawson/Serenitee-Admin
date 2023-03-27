@@ -18,7 +18,7 @@ const Chart = () => {
     <Typography fontWeight='light' fontSize='1.4rem' paddingBottom='2rem' marginLeft='1rem'>
         Analytics
     </Typography>
-    <LineChart width={450} height={300} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+    <LineChart width={370} height={300} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
       <XAxis dataKey="name" />
       {/* <YAxis /> */}
       <CartesianGrid strokeDasharray="1 3" />

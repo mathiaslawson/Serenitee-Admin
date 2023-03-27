@@ -21,15 +21,15 @@ function index({user, handleSignOut}) {
         gap='4rem'
         width='100%'
         flexWrap='wrap'
-        backgroundColor= '#F8F9FD'
+        backgroundColor= 'read'
       >
          <Topbar />
          <Box
           display='grid'
           position='sticky'
-          marginLeft='7rem'
+          marginLeft='14rem'
           marginTop='-95vh'
-          width='90%'
+          width='100%'
          >
              {currentRoute === '/dashboard' ? <Dashboard user={user} /> : null }
          </Box>

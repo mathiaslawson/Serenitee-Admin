@@ -31,7 +31,7 @@ const Topbar = () => {
     color = 'black'
     gap='4rem'
     width='100%'
-    
+
     >
 
         <Box>
@@ -46,7 +46,9 @@ const Topbar = () => {
         <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>
-        <Box >
+        <Box
+        
+        >
                 <img
                   alt="profile-user"
                   width="max-content"
@@ -72,54 +74,7 @@ const Topbar = () => {
               </Box>
         </Box>
  
-        {/* theme mode button */}
-        {/* <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton> */}
-       
-        {/* <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton> */}
-        {/* <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton> */}
-        {/* <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton> */}
-
-         {/* profile part */}
-
-         {/* <hr /> */}
-
-         {/* <Box >
-                <img
-                  alt="profile-user"
-                  width="max-content"
-                  height="50px"
-                //   src={profilepic}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box> 
-              <Box textAlign="center" >
-                <Typography
-                  width='max-content'
-                  marginLeft='5px'
-                  variant="h6"
-                  color={colors.black[100]}
-                  fontWeight="bold"
-                 
-                >
-                  Mathias Lawson
-                </Typography>
-                <Typography variant="h6" color={colors.black[300]} width='max-content' marginLeft='5px'>
-                 Software Messenger
-                </Typography>
-              </Box> */}
-              
+     
     
     </Box>
     </>

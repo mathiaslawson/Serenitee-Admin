@@ -37,7 +37,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -65,28 +65,28 @@ const Sidebar = () => {
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
-            style={{
-              margin: "10px 0 50px 0",
-              color: colors.black[100],
-            }}
+            // onClick={() => setIsCollapsed(!isCollapsed)}
+            // icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+            // style={{
+            //   margin: "10px 0 50px 0",
+            //   color: colors.black[100],
+            // }}
           >
-            {!isCollapsed && (
+            {/* {!isCollapsed && ( */}
               <Box
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.black[100]}>
+                <Typography variant="h2" color={colors.black[100]}>
                   Serenitee
                 </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                {/* <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
-                </IconButton>
+                </IconButton> */}
               </Box>
-            )}
+            {/* )} */}
           </MenuItem>
 
           {!isCollapsed && (

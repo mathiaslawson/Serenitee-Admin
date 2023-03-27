@@ -16,6 +16,7 @@ function Stats() {
               display='flex'
               justifyContent='space-between'
               alignItems='baseline'
+              
             >
                 <Typography variant='h5'>
                     Patients
