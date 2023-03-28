@@ -7,8 +7,8 @@ function Header({user}) {
        <Box display='grid'
        gap='1rem'
        marginTop='-2rem'>
-            <Typography variant='h2' fontWeight='600'>WELCOME, DR. {user.firstName} {user.lastName}</Typography>
-            <Typography fontWeight='lighter' variant='h4'>Check your latest updates on your account</Typography>
+            <Typography variant='h3' fontWeight='600'>WELCOME, DR. {user.firstName} {user.lastName}</Typography>
+            <Typography position='relative' top='-0.9rem' fontWeight='lighter' variant='h6'>Check your latest updates on your account</Typography>
        </Box>
     </>
   )

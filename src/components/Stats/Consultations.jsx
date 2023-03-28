@@ -6,7 +6,7 @@ function Consultations() {
     <>
        <Box
          display='grid'
-         width='12rem'
+         width='17rem'
          gap='0.5rem'
        >
             <Box

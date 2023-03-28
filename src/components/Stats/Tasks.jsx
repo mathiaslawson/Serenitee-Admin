@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { Box } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import Calendar from '../Calendar'
 import TimeLine from '../timeline'
 
@@ -31,9 +31,13 @@ function Tasks() {
     document.head.appendChild(scrollbarStyleElement);
   }, []);
 
+  const isAboveMediumScreens = useMediaQuery("(min-width:900px)")
+  const largeScreens = '26rem'
+  const smallScreens = '17rem'
+
   return (
     <>
-      <Box backgroundColor='white' maxHeight='100vh' height='80vh' width='27rem' padding='1rem' boxShadow='1px 1px 10px #e5e6ec' borderRadius='0.3rem' overflow='scroll'>
+      <Box backgroundColor='white' maxHeight='100vh' height='80vh' width={isAboveMediumScreens ? largeScreens : smallScreens} padding='1rem' boxShadow='1px 1px 10px #e5e6ec' borderRadius='0.3rem' overflow='scroll'>
          <Calendar />
          <TimeLine />
       </Box>
