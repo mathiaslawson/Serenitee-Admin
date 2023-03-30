@@ -31,7 +31,8 @@ Serenitee is a web application designed to enable health personnels to track the
 
 # Auth ,SignUp Page, Self Service Page
 <p align = "center">
-<img src = "./readme_images/ss.png">
-<img src = "./readme_images/gs.png">
-<img src = "./readme_images/service.png">
+<img src = "./readme_images/ss.png" width='20%'>
+<img src = "./readme_images/gs.png" width='20%'>
+<img src = "./readme_images/service.png" width='20%'>
+<img src = "./readme_images/dashboard.png" width='20%'>
 </p>
